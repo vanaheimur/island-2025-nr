@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "//"
+  ],
+  "tasks": {
+    "build": {
+      "outputs": [
+        "dist/**",
+        "schema.gql"
+      ]
+    },
+    "bundle": {
+      "dependsOn": [
+        "build"
+      ],
+      "outputs": [
+        "dist/compiled/**"
+      ]
+    }
+  }
+}

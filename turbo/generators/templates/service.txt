@@ -1,0 +1,22 @@
+import { {{pascalCase name}}Config } from './config'
+import { DemoInput } from './types'
+
+import type { Logger } from '@repo/logger'
+import { LOGGER_PROVIDER } from '@repo/logger'
+import {
+  Inject,
+  Injectable,
+} from '@nestjs/common'
+
+@Injectable()
+export class {{pascalCase name}}Service {
+  constructor(
+    @Inject(LOGGER_PROVIDER) private readonly logger: Logger,
+    private readonly config: KeyVaultConfigService<{{pascalCase name}}Config>,
+  ) {}
+
+  public async do{{pascalCase name}}Work(input: DemoInput) {
+    this.logger.info('The data', { input, config: this.config })
+    return true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "extends": "@repo/typescript-config/base.json",
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "paths": {
+      "@test/*": ["test/*"],
+      "@modules/*": ["src/*"]
+    },
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./"
+  },
+  "exclude": ["node_modules", "dist", "generated"]
+}

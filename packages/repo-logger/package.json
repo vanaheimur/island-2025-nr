@@ -1,0 +1,29 @@
+{
+  "name": "@repo/logger",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.js",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "rimraf dist && nest build",
+    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" --max-warnings=0",
+    "lint:fix": "yarn lint --fix"
+  },
+  "dependencies": {
+    "@nestjs/common": "11.0.11",
+    "nest-winston": "1.10.2",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.1",
+    "winston": "3.17.0"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "11.0.5",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "rimraf": "6.0.1",
+    "typescript": "5.8.2"
+  }
+}

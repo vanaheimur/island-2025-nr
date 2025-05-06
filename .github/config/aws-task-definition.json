@@ -1,0 +1,78 @@
+{
+    "family": "digital_iceland_2025",
+    "executionRoleArn": "arn:aws:iam::296951983367:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "containerDefinitions": [
+        {
+            "name": "backend",
+            "image": "296951983367.dkr.ecr.eu-west-1.amazonaws.com/digital_iceland_2025",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "backend-4000-tcp",
+                    "containerPort": 4000,
+                    "hostPort": 4000,
+                    "protocol": "tcp",
+                    "appProtocol": "http2"
+                }
+            ],
+            "essential": true,
+            "secrets": [
+                {
+                    "name": "DATABASE_URL",
+                    "valueFrom": "arn:aws:secretsmanager:eu-west-1:296951983367:secret:database_digital_iceland_2025-uTzaor:database_url::"
+                }
+            ],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/backend",
+                    "mode": "non-blocking",
+                    "awslogs-create-group": "true",
+                    "max-buffer-size": "25m",
+                    "awslogs-region": "eu-west-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
+        }
+    ],
+    "volumes": [],
+    "placementConstraints": [],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "3072",
+    "tags": [
+        {
+            "key": "Name",
+            "value": "digital-iceland-2025"
+        },
+        {
+            "key": "Environment",
+            "value": "production"
+        },
+        {
+            "key": "Project",
+            "value": "island-2025"
+        },
+        {
+            "key": "ManagedBy",
+            "value": "github-actions"
+        },
+        {
+            "key": "OperationalImportance",
+            "value": "critical"
+        }
+    ],
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    }
+}

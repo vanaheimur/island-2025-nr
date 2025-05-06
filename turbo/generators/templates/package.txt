@@ -1,0 +1,22 @@
+{
+  "name": "@vanir/{{dashCase name}}",
+  "dependencies": {
+    "@repo/logger": "workspace:*",
+    "@nestjs/common": "11.0.11",
+    "@nestjs/config": "4.0.1",
+    "@nestjs/core": "11.0.11",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.1"
+  },
+  "main": "./dist/index.js",
+  "scripts": {
+    "dev": "rimraf dist && nest build --watch",
+    "build": "rimraf dist && nest build"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "11.0.5",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "rimraf": "6.0.1"
+  }
+}

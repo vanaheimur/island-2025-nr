@@ -1,0 +1,20 @@
+# Use postgres/example user/password credentials
+version: '3.9'
+
+services:
+  db:
+    image: postgres:17.4
+    restart: no
+    shm_size: 512mb
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: c38e22714aa51b97c15c882ccaf23789
+    ports:
+      - 5432:5433
+
+  adminer:
+    image: adminer
+    restart: no
+    ports:
+      - 8080:8081

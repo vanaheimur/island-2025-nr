@@ -1,0 +1,29 @@
+import Joi from 'joi'
+import { DeepRequired } from 'utility-types'
+
+const config = () => {
+  const values = {
+    demo: 'API',
+  }
+
+  const schema = Joi.object({
+    demo: Joi.string().required(),
+  })
+
+  const { error } = schema.validate(values, { allowUnknown: false })
+
+  if (error) {
+    throw new Error(
+      `Config validation error in {{lowerCase name}} module: ${error.message}`,
+    )
+  }
+
+  return {
+    {{camelCase name}}: values,
+  }
+}
+
+export type {{pascalCase name}}Config = DeepRequired<ReturnType<typeof config>>
+
+
+export default config

@@ -1,0 +1,14 @@
+import { {{pascalCase name}}Service } from './{{dashCase name}}.service'
+import config from './config'
+
+import { LoggerModule } from '@repo/logger'
+import { Module } from '@nestjs/common'
+
+@Module({
+  imports: [
+    KeyVaultConfigModule.forFeature(config),
+    LoggerModule,
+  ],
+  providers: [{{pascalCase name}}Service],
+})
+export class {{pascalCase name}}Module {}

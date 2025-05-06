@@ -1,0 +1,2 @@
+export * from './{{dashCase name}}.module'
+export * from './{{dashCase name}}.service'
