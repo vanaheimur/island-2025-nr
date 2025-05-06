@@ -15,7 +15,14 @@ async function main() {
     person: {
       columns: {
         name: f.fullName(),
-        nationalId: f.int({ minValue: 1000000000, maxValue: 9999999999 }),
+        nationalId: f.valuesFromArray({
+          values: [
+            '1234567890',
+            '0987654321',
+            '1122334455',
+            ...(process.env.TEST_NATIONAL_IDS?.split(',') ?? []),
+          ],
+        }),
         legalResidence: f.streetAddress(),
         postCode: f.postcode(),
       },
