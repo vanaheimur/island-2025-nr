@@ -40,6 +40,7 @@
   "globalEnv": [
     "PORT",
     "DATABASE_URL",
-    "NODE_ENV"
+    "NODE_ENV",
+    "TEST_NATIONAL_IDS"
   ]
 }
