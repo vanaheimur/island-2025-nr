@@ -1,3 +1,5 @@
+import { plainToInstance } from 'class-transformer'
+
 export class PersonOutput {
   id!: number
   name!: string
@@ -8,6 +10,11 @@ export class PersonOutput {
 
   // this allows us to cast data to an instance of this class
   constructor(partial: Partial<PersonOutput>) {
-    Object.assign(this, partial)
+    Object.assign(
+      this,
+      plainToInstance(PersonOutput, partial, {
+        excludeExtraneousValues: true,
+      }),
+    )
   }
 }
