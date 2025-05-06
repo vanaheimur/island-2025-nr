@@ -41,6 +41,7 @@
     "PORT",
     "DATABASE_URL",
     "NODE_ENV",
-    "TEST_NATIONAL_IDS"
+    "TEST_NATIONAL_IDS",
+    "AUTH_TOKEN_SECRET"
   ]
 }
