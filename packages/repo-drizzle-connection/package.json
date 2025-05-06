@@ -14,7 +14,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "dev": "rimraf dist && nest build --watch",
-    "dev:init": "docker compose up -d",
+    "dev:init": "docker compose -p island-nr up -d",
     "build": "rimraf dist && nest build",
     "db:gen": "drizzle-kit generate",
     "db:mig": "drizzle-kit migrate",
