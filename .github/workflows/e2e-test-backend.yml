@@ -1,0 +1,35 @@
+name: Run e2e tests for backend
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'apps/backend/**'
+      - 'packages/**'
+      - '.github/workflows/e2e-test-backend.yml'
+
+jobs:
+  deploy:
+    name: Run test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Enable corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run e2e tests
+        run: |
+          cd apps/backend
+          yarn test:e2e
