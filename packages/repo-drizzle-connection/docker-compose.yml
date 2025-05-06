@@ -11,10 +11,10 @@ services:
       POSTGRES_DB: postgres
       POSTGRES_PASSWORD: c38e22714aa51b97c15c882ccaf23789
     ports:
-      - 5432:5433
+      - 5433:5432
 
   adminer:
     image: adminer
     restart: no
     ports:
-      - 8080:8081
+      - 8081:8080
