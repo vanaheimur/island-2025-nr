@@ -21,6 +21,10 @@
                 {
                     "name": "DATABASE_URL",
                     "valueFrom": "arn:aws:secretsmanager:eu-west-1:296951983367:secret:digital_iceland_2025_nr-UvzfBk:database_url::"
+                },
+                {
+                    "name": "AUTH_TOKEN_SECRET",
+                    "valueFrom": "arn:aws:secretsmanager:eu-west-1:296951983367:secret:digital_iceland_2025_nr-UvzfBk:auth_secret::"
                 }
             ],
             "environmentFiles": [],
