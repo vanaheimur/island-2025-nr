@@ -9,7 +9,7 @@ COPY . .
 RUN corepack enable
 
 # This creates an optimized folder and file structure for building
-RUN npx turbo prune backend --docker
+RUN npx turbo@2.5.2 prune backend --docker
 
 # Add lockfile and package.json's of isolated subworkspace
 FROM base AS installer

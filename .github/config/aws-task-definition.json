@@ -1,5 +1,5 @@
 {
-    "family": "digital_iceland_2025",
+    "family": "digital_iceland_2025_nr",
     "executionRoleArn": "arn:aws:iam::296951983367:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "containerDefinitions": [
@@ -20,7 +20,7 @@
             "secrets": [
                 {
                     "name": "DATABASE_URL",
-                    "valueFrom": "arn:aws:secretsmanager:eu-west-1:296951983367:secret:database_digital_iceland_2025-uTzaor:database_url::"
+                    "valueFrom": "arn:aws:secretsmanager:eu-west-1:296951983367:secret:digital_iceland_2025_nr-UvzfBk:database_url::"
                 }
             ],
             "environmentFiles": [],
