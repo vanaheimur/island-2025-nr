@@ -13,7 +13,7 @@ on:
 env:
   AWS_REGION: eu-west-1
   ECR_REPOSITORY: digital_iceland_2025
-  ECS_SERVICE: digital_iceland_2025
+  ECS_SERVICE: digital_iceland_2025_nr
   ECS_CLUSTER: digital_iceland_2025
   ECS_TASK_DEFINITION: .github/config/aws-task-definition.json
   CONTAINER_NAME: backend
