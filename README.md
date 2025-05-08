@@ -1,84 +1,119 @@
-# Turborepo starter
+# Þjóðskrá Monorepo
 
-This Turborepo starter is maintained by the Turborepo core team.
+Welcome to the Þjóðskrá Monorepo! This repository contains interconnected Þjóðskrá assets, managed using [yarn workspaces](https://yarnpkg.com/features/workspaces). Please ensure you have the latest version of `yarn` installed to manage dependencies in this project.
 
-## Using this example
+## Quick Start
 
-Run the following command:
+Follow these steps to get started quickly:
 
-```sh
-npx create-turbo@latest
+1. Allow `direnv` to manage the environment:
+
+   ```bash
+   direnv allow
+   ```
+
+2. Enable `corepack` to install the correct version of `yarn`:
+
+   ```bash
+   corepack enable
+   ```
+
+3. Install the node modules:
+
+   ```bash
+   yarn
+   ```
+
+4. Run the project:
+   ```bash
+   yarn dev
+   ```
+
+To limit the apps that start, you can filter the dev command, for example:
+
+```bash
+yarn dev --filter="backend"
 ```
 
-## What's inside?
+## Setup
 
-This Turborepo includes the following packages/apps:
+Ensure you have the following tools installed on your local machine (this monorepo has only been tested on Mac OS):
 
-### Apps and Packages
+- **direnv**: Install via `brew install direnv` or follow the [direnv installation guide](https://direnv.net/docs/installation.html)
+- **nvm**: Follow the [nvm install guide](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **yarn**: Enable via `corepack enable`
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+### direnv
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+`direnv` is a tool to manage your project's environment. It initializes the required environment variables for your app and sets the node version to the value defined in the `.nvmrc` file.
 
-### Utilities
+When you enter the project folder for the first time, `direnv` will show an error:
 
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
+```bash
+direnv: error /Users/yournamehere/develop/þjóðskrá-app/.envrc is blocked. Run `direnv allow` to approve its content
 ```
 
-### Develop
+Run `direnv allow` to allow `direnv` to manage the environment for your project.
 
-To develop all apps and packages, run the following command:
+### Environment Variables
 
+To populate the environment variables on your local machine, make a copy of the `.env.local.example` file and rename it to `.env.local`.
+
+The `.env.local.example` file comes pre-populated with most of the required environment variables, but you might need to fetch sensitive variables from external systems.
+
+### Install Node Dependencies
+
+To install all dependencies, run:
+
+```bash
+yarn install
 ```
-cd my-turborepo
-pnpm dev
+
+## Dev Scripts
+
+To start the system in dev mode, run the following command in the root of the repository:
+
+```bash
+yarn dev
 ```
 
-### Remote Caching
+To run a subset of applications, such as just the backend system, use a filter:
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
+```bash
+yarn dev --filter="backend"
 ```
-cd my-turborepo
+
+## Remote Caching
+
+Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+
+To log in, enter the following commands (you need access to the Þjóðskrá project on Vercel):
+
+```bash
 npx turbo login
 ```
 
 This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+Next, link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
 
-```
+```bash
 npx turbo link
 ```
 
 ## Useful Links
 
-Learn more about the power of Turborepo:
+Learn more about Turborepo:
 
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
+- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
+- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
+- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
+- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
+- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+
+## Individual App Setup
+
+### Backend
+
+Refer to the [backend README](apps/backend/README.md) for specific setup instructions.
