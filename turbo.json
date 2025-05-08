@@ -42,6 +42,7 @@
     "DATABASE_URL",
     "NODE_ENV",
     "TEST_NATIONAL_IDS",
-    "AUTH_TOKEN_SECRET"
+    "AUTH_TOKEN_SECRET",
+    "BUILD_COUNTER"
   ]
 }
