@@ -17,6 +17,12 @@
                 }
             ],
             "essential": true,
+            "environment": [
+                {
+                    "name": "PORT",
+                    "value": "4000"
+                }
+            ],
             "secrets": [
                 {
                     "name": "DATABASE_URL",
