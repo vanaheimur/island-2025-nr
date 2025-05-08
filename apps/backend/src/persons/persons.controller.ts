@@ -10,7 +10,11 @@ export class PersonsController {
   async getPersonByNationalId(
     @Param('nationalId') nationalId: string,
   ): Promise<PersonOutput> {
-    const person = await this.personsService.getPersonByNationalId(nationalId)
+    const {
+      createdAt: _a,
+      updatedAt: _b,
+      ...person
+    } = await this.personsService.getPersonByNationalId(nationalId)
     return new PersonOutput(person)
   }
 }
