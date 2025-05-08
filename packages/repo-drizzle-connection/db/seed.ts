@@ -20,6 +20,7 @@ async function main() {
             '1234567890',
             '0987654321',
             '1122334455',
+            '0101307789',
             ...(process.env.TEST_NATIONAL_IDS?.split(',') ?? []),
           ],
         }),
